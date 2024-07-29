@@ -6,6 +6,37 @@ body {
     background-color: #f1f1f1;
 }
 
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.start-screen h1 {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#start-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#start-button:hover {
+    background-color: #0056b3;
+}
+
 .chat-container {
     width: 360px;
     height: 600px;
@@ -16,6 +47,7 @@ body {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .chat-list {
@@ -25,30 +57,72 @@ body {
     list-style: none;
     margin: 0;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Adjusted gap between messages */
 }
 
-.chat-list li {
-    margin-bottom: 10px;
-    max-width: 70%;
+/* Remove border for message items and set max-width */
+.message-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 0; /* Default margin for the left profile image */
+}
+
+/* Align the question messages to the right */
+.question {
+    align-self: flex-end;
+    flex-direction: row-reverse; /* Align items in row direction */
+}
+
+.question .message-content {
+    background-color: #007bff; /* Message background color for questions */
+    color: white;
     padding: 10px;
     border-radius: 10px;
+    max-width: calc(100% - 40px); /* Adjust max-width for message content */
+    word-wrap: break-word; /* Ensure long words don't overflow */
 }
 
-.question {
-    background-color: #e1ffc7;
-    align-self: flex-end;
-    border: 1px solid #c1e5a6;
+/* Move the profile image to the right for question messages */
+.question .profile-img {
+    margin-right: 0;
+    margin-left: 10px; /* Position profile image to the left of message content */
 }
 
+/* Align the answer messages to the right */
 .answer {
-    background-color: #f1f0f0;
     align-self: flex-start;
-    border: 1px solid #d1d1d1;
+    flex-direction: row; /* Align items in row-reverse direction */
+}
+
+.answer .message-content {
+    background-color: #f1f0f0; /* Background color for answers */
+    border: none; /* Remove border */
+    padding: 10px;
+    border-radius: 10px;
+    max-width: calc(100% - 40px); /* Adjust max-width for message content */
+    word-wrap: break-word; /* Ensure long words don't overflow */
+}
+
+/* Move the profile image to the left for answer messages */
+.answer .profile-img {
+    margin-left: 0;
+    margin-right: 10px; /* Position profile image to the right of message content */
 }
 
 .chat-form {
     display: flex;
     border-top: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px;
 }
 
 #chat-input {

@@ -2,6 +2,10 @@ const $form = document.querySelector("#chat-form");
 const $input = document.querySelector("#chat-input");
 const $chatList = document.querySelector("#chat-list");
 
+const $startScreen = document.querySelector("#start-screen");
+const $startButton = document.querySelector("#start-button");
+const $chatContainer = document.querySelector("#chat-container");
+
 const url = "https://open-api.jejucodingcamp.workers.dev/";
 
 const context = `
@@ -45,7 +49,12 @@ const printQuestion = () => {
     questionData.forEach((el) => {
       let li = document.createElement("li");
       li.classList.add("question");
-      li.innerText = el.content;
+      li.innerHTML = `
+      <li class="message-item question">
+        <img src="assets/profile.png" alt="User" class="profile-img">
+        <div class="message-content">${el.content}</div>
+      </li>
+      `;
       $chatList.appendChild(li);
     });
     questionData = [];
@@ -56,7 +65,12 @@ const printQuestion = () => {
 const printAnswer = (answer) => {
   let li = document.createElement("li");
   li.classList.add("answer");
-  li.innerText = answer;
+  li.innerHTML = `
+  <li class="message-item answer">
+    <img src="assets/lutheran.jpg" alt="AI" class="profile-img">
+    <div class="message-content">${answer}</div>
+  </li>
+  `;
   $chatList.appendChild(li);
 };
 
@@ -97,4 +111,10 @@ $form.addEventListener("submit", (e) => {
     apiPost();
     $input.value = ''; // 입력 필드 초기화
   }
+});
+
+// 시작 버튼 클릭 이벤트
+$startButton.addEventListener("click", () => {
+  $startScreen.classList.add("hidden");
+  $chatContainer.classList.remove("hidden");
 });
