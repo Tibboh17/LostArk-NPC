@@ -59,10 +59,9 @@ body {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Adjusted gap between messages */
+    gap: 30px;
 }
 
-/* Remove border for message items and set max-width */
 .message-item {
     display: flex;
     align-items: flex-start;
@@ -73,49 +72,45 @@ body {
     height: 30px;
     border-radius: 50%;
     margin-right: 10px;
-    margin-left: 0; /* Default margin for the left profile image */
+    margin-left: 0;
 }
 
-/* Align the question messages to the right */
 .question {
     align-self: flex-end;
-    flex-direction: row-reverse; /* Align items in row direction */
+    flex-direction: row-reverse;
 }
 
 .question .message-content {
-    background-color: #007bff; /* Message background color for questions */
+    background-color: #007bff;
     color: white;
     padding: 10px;
     border-radius: 10px;
-    max-width: calc(100% - 40px); /* Adjust max-width for message content */
-    word-wrap: break-word; /* Ensure long words don't overflow */
+    max-width: calc(100% - 40px);
+    word-wrap: break-word;
 }
 
-/* Move the profile image to the right for question messages */
 .question .profile-img {
     margin-right: 0;
-    margin-left: 10px; /* Position profile image to the left of message content */
+    margin-left: 10px;
 }
 
-/* Align the answer messages to the right */
 .answer {
     align-self: flex-start;
-    flex-direction: row; /* Align items in row-reverse direction */
+    flex-direction: row;
 }
 
 .answer .message-content {
-    background-color: #f1f0f0; /* Background color for answers */
-    border: none; /* Remove border */
+    background-color: #f1f0f0;
+    border: none;
     padding: 10px;
     border-radius: 10px;
-    max-width: calc(100% - 40px); /* Adjust max-width for message content */
-    word-wrap: break-word; /* Ensure long words don't overflow */
+    max-width: calc(100% - 40px);
+    word-wrap: break-word;
 }
 
-/* Move the profile image to the left for answer messages */
 .answer .profile-img {
     margin-left: 0;
-    margin-right: 10px; /* Position profile image to the right of message content */
+    margin-right: 10px;
 }
 
 .chat-form {

@@ -29,7 +29,6 @@ const context = `
 6. 한 번에 많은 정보를 말하지 않으며 플레이어의 질문을 기다립니다.
 7. 플레이어가 아직 밝혀지지 않은 안배와 비밀들에 대해 물어보려 한다면 정중히 말해줄 수 없다고 해주세요. 그리고 이 모든 것은 미래에 가장 중요한 순간에 다 알게될 것이라고 전해주세요.`;
 
-// 대화 이력 저장
 let data = [
   {
     role: "system",
@@ -40,7 +39,6 @@ let data = [
 let question;
 let questionData = [];
 
-// 사용자의 질문을 객체를 만들어서 push
 const sendQuestion = (question) => {
   if (question) {
     data.push({
@@ -54,7 +52,6 @@ const sendQuestion = (question) => {
   }
 };
 
-// 화면에 질문 그려주는 함수
 const printQuestion = () => {
   if (questionData.length > 0) {
     questionData.forEach((el) => {
@@ -73,7 +70,6 @@ const printQuestion = () => {
   }
 };
 
-// 화면에 답변 그려주는 함수
 const printAnswer = (answer) => {
   let li = document.createElement("li");
   li.classList.add("answer");
@@ -87,7 +83,6 @@ const printAnswer = (answer) => {
   scrollToBottom();
 };
 
-// API 요청 보내는 함수
 const apiPost = async () => {
   try {
     const response = await fetch(url, {
@@ -124,7 +119,6 @@ const addInitialMessage = () => {
 
 addInitialMessage();
 
-// submit 이벤트 처리
 $form.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputText = $input.value.trim();
@@ -133,11 +127,10 @@ $form.addEventListener("submit", (e) => {
     sendQuestion(inputText);
     printQuestion();
     apiPost();
-    $input.value = ''; // 입력 필드 초기화
+    $input.value = '';
   }
 });
 
-// 시작 버튼 클릭 이벤트
 $startButton.addEventListener("click", () => {
   $startScreen.classList.add("hidden");
   $chatContainer.classList.remove("hidden");
