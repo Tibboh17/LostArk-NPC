@@ -64,6 +64,7 @@ const printQuestion = () => {
       </li>
       `;
       $chatList.appendChild(li);
+      scrollToBottom();
     });
     questionData = [];
   }
@@ -80,6 +81,7 @@ const printAnswer = (answer) => {
   </li>
   `;
   $chatList.appendChild(li);
+  scrollToBottom();
 };
 
 // API 요청 보내는 함수
@@ -106,6 +108,10 @@ const apiPost = async () => {
     console.error(err);
     printAnswer("미안하네. 그 말에는 대답할 수 없겠군.");
   }
+};
+
+const scrollToBottom = () => {
+  $chatList.scrollTop = $chatList.scrollHeight;
 };
 
 // submit 이벤트 처리
