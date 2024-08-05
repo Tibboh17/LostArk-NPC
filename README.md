@@ -64,7 +64,7 @@ graph TD;
 - 시작 페이지에서 버튼을 누르면 대화 화면으로 이동.
 
 <div align=center>
-    <img src="assets/Chat with Lutheran.png" alt="Example Image of the Web Page" width=70%>
+    <img src="assets/Chat with Lutheran.png" alt="Example Image of the Web Page">
 </div>
 
 # 문서화 및 배포
